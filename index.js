@@ -18,10 +18,10 @@ module.exports = function(str) {
         current++;
         return React.createElement('br', { key: index });
       } else {
-        current = 0;
         return false;
       }
     } else {
+      current = 0;
       return line;
     }
   });
