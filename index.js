@@ -9,19 +9,21 @@ module.exports = function(str) {
   } else if (typeof str !== 'string') {
     return '';
   }
-  
+
   var current = 0;
 
   return str.split(newlineRegex).map(function(line, index) {
     if (line.match(newlineRegex)) {
-      if (current < 2) {
-        current++;
+      current++;
+      if (current <= 2) {
         return React.createElement('br', { key: index });
       } else {
-        return false;
+        return;
       }
     } else {
-      current = 0;
+      if (line.trim()) {
+        current = 0;
+      }
       return line;
     }
   });
