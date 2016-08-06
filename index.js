@@ -15,8 +15,8 @@ module.exports = function(str) {
   return str.split(newlineRegex).map(function(line, index) {
     if (line.match(newlineRegex)) {
       if (current < 2) {
-        React.createElement('br', { key: index });
         current++;
+        return React.createElement('br', { key: index });
       } else {
         current = 0;
         return false;
